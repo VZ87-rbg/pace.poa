@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PACE Poá — Tecnologia social a serviço do primeiro emprego</title>
+<meta name="description" content="PACE Poá: Poá Ação, Capacita e Emprega. Formação e primeiro emprego para jovens de Poá.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#202020; --blue:#4f6eff; --brush:#1e3a6b; --soft:#b9c4de;
+  --bg:#ffffff; --text:#1c1c1c; --head:#0b57c8; --panel:#eef2ff; --line:#c9d6f5; --muted:#4a5568;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#202020;--text:#f1f3f9;--head:#7d93ff;--panel:#2a2d3a;--line:#3a4160;--muted:#b9c4de;}
+}
+:root[data-theme="dark"]{--bg:#202020;--text:#f1f3f9;--head:#7d93ff;--panel:#2a2d3a;--line:#3a4160;--muted:#b9c4de;}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,"Liberation Sans",sans-serif;line-height:1.6;font-size:1.05rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--char);z-index:20}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+section{padding:4rem 0}
+h2{font-size:clamp(1.6rem,4.5vw,2.2rem);color:var(--head);margin:0 0 1rem;line-height:1.15}
+h3{margin:0 0 .4rem;font-size:1.15rem}
+p{margin:0 0 1rem;max-width:62ch}
+.center{text-align:center}.center p{margin-left:auto;margin-right:auto}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.btn{display:inline-block;border:2px solid var(--blue);background:var(--blue);color:#fff;font:700 .92rem Arial,sans-serif;letter-spacing:.02em;padding:.8rem 1.5rem;border-radius:99px;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:transparent;color:inherit}
+
+/* cabeçalho fixo */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--char);color:#fff;border-bottom:3px solid var(--blue)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.brand{font-family:Syne,"Arial Black",Arial,sans-serif;font-weight:800;font-size:1.6rem;color:var(--blue);text-decoration:none;letter-spacing:-.03em}
+.top nav{display:flex;gap:.6rem}
+.top .btn{padding:.55rem 1.1rem;font-size:.82rem}
+
+/* hero */
+.hero{background:var(--char);color:#fff;padding:4.5rem 0 4rem}
+.hero .wrap{display:grid;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(2rem,6vw,3.3rem);line-height:1.08;margin:0 0 1rem}
+.hero p{color:var(--soft);font-size:1.15rem}
+.logo{justify-self:center;position:relative;padding:0 .5rem .2rem}
+.logo::before{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:var(--brush);opacity:.8}
+.logo b{position:relative;display:block;font-family:Syne,"Arial Black",Arial,sans-serif;font-weight:800;color:var(--blue);font-size:clamp(6rem,24vw,10rem);line-height:.82;letter-spacing:-.04em}
+.logo span{position:relative;display:block;color:#fff;font-size:.85rem;padding:.5rem 0 .3rem;text-align:center}
+@media(min-width:820px){.hero .wrap{grid-template-columns:1.2fr .8fr}}
+
+/* quem somos + público */
+.intro{background:var(--panel)}
+.who{display:grid;gap:2rem}
+.qs{display:flex;flex-wrap:wrap;gap:.55rem;padding:0;margin:0 0 1.2rem;list-style:none}
+.qs li{background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:.45rem .95rem;font-size:.95rem}
+@media(min-width:820px){.who{grid-template-columns:1fr 1fr}}
+
+/* 4 verbos */
+.verbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1.5rem}
+.verb{border-top:6px solid var(--blue);background:var(--panel);padding:1.2rem 1.2rem 1.4rem;border-radius:0 0 6px 6px}
+.verb h3{color:var(--head);font-size:1.4rem}
+.verb p{margin:0;font-size:.98rem}
+
+/* números */
+.stats{background:var(--char);color:#fff}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.5rem;text-align:center}
+.nums b{display:block;font-family:Syne,"Arial Black",Arial,sans-serif;font-size:clamp(1.8rem,5vw,2.5rem);color:var(--blue);line-height:1.1}
+.nums span{color:var(--soft);font-size:.95rem}
+
+/* diferenciais */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:1.5rem}
+.card{border:2px solid var(--line);border-radius:8px;padding:1.3rem}
+.card h3{color:var(--head)}
+.card p{margin:0;font-size:.98rem}
+
+/* seletor de perfil */
+.profiles{background:var(--panel)}
+.tabs{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:1.5rem 0}
+.tab{background:var(--bg);color:var(--text);border:2px solid var(--line);border-radius:99px;padding:.7rem 1.3rem;font:700 .95rem Arial,sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.panel{background:var(--bg);border-left:6px solid var(--blue);border-radius:6px;padding:1.5rem;max-width:720px;margin:0 auto}
+.panel[hidden]{display:none}
+.panel ul{margin:.5rem 0 0;padding-left:1.1rem}
+.panel li{margin-bottom:.35rem}
+
+/* equipe */
+.team{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;padding:0;margin:1.5rem 0 0;list-style:none}
+.team li{border:2px solid var(--line);border-radius:8px;padding:.7rem 1.2rem;font-weight:700}
+
+/* contato */
+.talk{background:var(--char);color:#fff;border-top:6px solid var(--blue)}
+.talk h2{color:#fff}.talk p{color:var(--soft)}
+footer{background:var(--char);color:var(--soft);text-align:center;font-size:.85rem;padding:1rem 0 1.5rem;border-top:1px solid #3a3a3a}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="PACE Poá">PACE</a>
+    <nav>
+      <a class="btn ghost" href="#perfis">Como participar</a>
+      <a class="btn" href="#contato">Fale com a gente</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Capacitação a serviço do primeiro emprego dos jovens de Poá</h1>
+      <p>Um projeto social feito por estudantes da ETEC de Poá para informar, preparar, desenvolver e conectar quem está dando os primeiros passos no mercado de trabalho.</p>
+      <a class="btn" href="#contato">Quero participar</a>
+    </div>
+    <div class="logo" aria-hidden="true"><b>PA<br>CE</b><span>Poá Ação, Capacita e Emprega</span></div>
+  </div>
+</section>
+
+<section class="intro" id="quem-somos">
+  <div class="wrap who">
+    <div>
+      <h2>Somos um projeto escolar com propósito social</h2>
+      <p>O PACE Poá nasceu no Projeto Integrador II da ETEC de Poá. Com informação, orientação e atividades práticas, ajudamos jovens a se prepararem para processos seletivos, estágios, programas de aprendizagem e o primeiro emprego.</p>
+      <p>Não temos fins lucrativos. Nosso foco é o impacto no nosso município.</p>
+    </div>
+    <div>
+      <h2>Você está procurando o primeiro emprego?</h2>
+      <p>Perguntas que respondemos junto aos jovens:</p>
+      <ul class="qs">
+        <li>Onde procurar meu primeiro emprego?</li>
+        <li>Como fazer um currículo?</li>
+        <li>Como funciona uma entrevista?</li>
+        <li>O que é Jovem Aprendiz?</li>
+        <li>Posso fazer estágio?</li>
+        <li>Como identificar oportunidades confiáveis?</li>
+      </ul>
+      <a class="btn" href="#contato">Quero tirar minhas dúvidas</a>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap center">
+    <h2>Como o PACE funciona</h2>
+    <p>Quatro ações que se completam.</p>
+    <div class="verbs" style="text-align:left">
+      <div class="verb"><h3>Informar</h3><p>Mercado de trabalho, primeiro emprego, estágio e aprendizagem em linguagem simples.</p></div>
+      <div class="verb"><h3>Preparar</h3><p>Currículo, entrevista e processos seletivos na prática.</p></div>
+      <div class="verb"><h3>Desenvolver</h3><p>Postura profissional, comunicação e responsabilidade no trabalho.</p></div>
+      <div class="verb"><h3>Conectar</h3><p>Aproximar os jovens de instituições, empresas e oportunidades.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap nums">
+    <div><b>32,75%</b><span>da população de Poá está ocupada (IBGE)</span></div>
+    <div><b>R$ 2,5 mil</b><span>de remuneração média aproximada nos empregos locais</span></div>
+    <div><b>2 bairros</b><span>prioritários: Calmon Viana e Cidade Kemel</span></div>
+    <div><b>30 min</b><span>é a duração máxima de cada oficina</span></div>
+  </div>
+</section>
+
+<section id="diferenciais">
+  <div class="wrap center">
+    <h2>Por que o PACE faz diferença</h2>
+    <div class="cards" style="text-align:left">
+      <div class="card"><h3>Oficinas curtas e práticas</h3><p>Até 30 minutos, levadas direto às turmas de 9º ano e ensino médio, com panfleto no final.</p></div>
+      <div class="card"><h3>Olhar para o território</h3><p>Pensado para a realidade de Poá e para a migração pendular que esvazia a economia local.</p></div>
+      <div class="card"><h3>Feito por jovens, para jovens</h3><p>Quem constrói o projeto vive os mesmos desafios de quem participa.</p></div>
+      <div class="card"><h3>Sem fins lucrativos</h3><p>Impacto social como único objetivo, com espaço para parcerias.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="profiles" id="perfis">
+  <div class="wrap center">
+    <h2>Escolha o perfil em que você se encaixa</h2>
+    <p>Veja como participar ou apoiar o PACE.</p>
+    <div class="tabs" role="tablist" aria-label="Perfis">
+      <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true">Sou aluno</button>
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false">Sou da escola</button>
+      <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">Sou empresa</button>
+      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">Sou do poder público</button>
+    </div>
+    <div class="panel" id="p0" role="tabpanel" aria-labelledby="t0" style="text-align:left">
+      <h3>Quero me preparar para o primeiro emprego</h3>
+      <ul><li>Participe das oficinas na sua escola</li><li>Tire dúvidas sobre currículo, entrevista, Jovem Aprendiz e estágio</li><li>Leve o panfleto com as informações principais</li></ul>
+    </div>
+    <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden style="text-align:left">
+      <h3>Quero levar o PACE para a minha escola</h3>
+      <ul><li>Oficinas de até 30 minutos para 9º ano e ensino médio</li><li>Conteúdo sobre mercado de trabalho e primeiro emprego</li><li>Combinamos o melhor horário com a coordenação</li></ul>
+    </div>
+    <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden style="text-align:left">
+      <h3>Quero aproximar jovens da minha empresa</h3>
+      <ul><li>Divulgar vagas para jovens de Poá</li><li>Participar como palestrante nas oficinas</li><li>Ajudar a formar profissionais para a economia local</li></ul>
+    </div>
+    <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden style="text-align:left">
+      <h3>Quero apoiar o projeto como poder público</h3>
+      <ul><li>Articulação com a secretaria mais adequada (Educação, Desenvolvimento Econômico ou Trabalho)</li><li>Divulgação pelos canais do mandato</li><li>Conexão com comerciantes e empresários da região</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="equipe">
+  <div class="wrap center">
+    <h2>Quem faz o PACE</h2>
+    <p>Jovens estudantes da ETEC de Poá.</p>
+    <ul class="team">
+      <li>Milenny Moura</li><li>Richard Oliveira</li><li>Sabrina Cuer</li><li>Thiago Gonçalves</li><li>Pedro Pontes</li>
+    </ul>
+  </div>
+</section>
+
+<section class="talk center" id="contato">
+  <div class="wrap">
+    <h2>Vamos conversar?</h2>
+    <p>Queremos aproximar os jovens de Poá do mercado de trabalho de forma mais preparada, consciente e responsável. Fale com a gente pelo WhatsApp.</p>
+    <!-- Troque o número abaixo pelo WhatsApp do grupo (formato: 55 + DDD + número, sem espaços) -->
+    <a class="btn" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20PACE%20Po%C3%A1." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</section>
+
+</main>
+
+<footer>PACE Poá · ETEC de Poá · Projeto Integrador II</footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.setAttribute('aria-selected',on);
+        document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
